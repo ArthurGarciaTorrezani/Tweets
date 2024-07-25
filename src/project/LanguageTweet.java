@@ -6,15 +6,30 @@ public class LanguageTweet {
      private int positive;
      private int negative;
      private int neutral;
+     private String language;
 
-     public LanguageTweet() {
+     public LanguageTweet(String language) {
           head = new Tweet("void", "void", "void");
-          head.setProx(head);
+          head.setProx(null);
+          this.language = language;
      }
 
-     public void insertInFinal(Tweet t){
-          t.setProx(head);
-          head.setProx(t);
+     public void insertInBeginning(Tweet t) {
+          if(head.getprox() != null){ // verifica se a lista ta vazia
+               t.setProx(head.getprox());
+               head.setProx(t);         
+          }else{ 
+               head.setProx(t);
+               t.setProx(null);
+          }
+     }
+
+     public void print(){
+          Tweet aux = head;
+          while (aux != null) {
+               System.out.println(aux.getAnnotatorID());
+               aux = aux.getprox();
+          }
      }
 
      public int getamount() {
@@ -47,5 +62,9 @@ public class LanguageTweet {
 
      public void setNeutros(int neutral) {
           this.neutral = neutral;
+     }
+
+     public String getLanguage(){
+          return language;
      }
 }

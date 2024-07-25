@@ -5,6 +5,7 @@ public class Tweet {
     private String AnnotatorID;
     private Tweet prox;
 
+
     public Tweet(String TweetID, String HandLabel, String AnnotatorID){
         this.TweetID = TweetID;
         this.HandLabel = HandLabel;
