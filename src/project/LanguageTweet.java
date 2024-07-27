@@ -1,6 +1,6 @@
 package project;
 
-public class LanguageTweet {
+public class LanguageTweet { // usa uma lista encadeada simples
      private Tweet head;
      private int amount;
      private int positive;
@@ -9,27 +9,39 @@ public class LanguageTweet {
      private String language;
 
      public LanguageTweet(String language) {
-          head = new Tweet("void", "void", "void");
-          head.setProx(null);
+          head = null;
+          positive = 0;
+          negative = 0;
+          neutral = 0;
+          amount = 0;
           this.language = language;
      }
 
      public void insertInBeginning(Tweet t) {
-          if(head.getprox() != null){ // verifica se a lista ta vazia
-               t.setProx(head.getprox());
-               head.setProx(t);         
-          }else{ 
-               head.setProx(t);
-               t.setProx(null);
+          t.setProx(head);
+          head = t;
+          amount++;
+          if(t.getHandLabel().equals("Neutral")){
+               neutral++;
+          }
+          if(t.getHandLabel().equals("Positive")){
+               positive++;
+          }
+          if(t.getHandLabel().equals("Negative")){
+               negative++;
           }
      }
 
-     public void print(){
+     public void print() {
           Tweet aux = head;
           while (aux != null) {
                System.out.println(aux.getAnnotatorID());
                aux = aux.getprox();
           }
+     }
+
+     public void getFeelings(){
+          System.out.println(negative + "," + positive + "," + neutral);
      }
 
      public int getamount() {
@@ -64,7 +76,7 @@ public class LanguageTweet {
           this.neutral = neutral;
      }
 
-     public String getLanguage(){
+     public String getLanguage() {
           return language;
      }
 }
