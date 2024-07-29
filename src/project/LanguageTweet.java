@@ -41,7 +41,7 @@ public class LanguageTweet { // usa uma lista encadeada simples
      }
 
      public void getFeelings(){
-          System.out.println(negative + "," + positive + "," + neutral);
+          System.out.println("Negative: "+negative + ", Positive: " + positive + ", Neutral: " + neutral);
      }
 
      public int getamount() {
