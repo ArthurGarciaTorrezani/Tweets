@@ -1,82 +1,31 @@
 package project;
 
-public class LanguageTweet { // usa uma lista encadeada simples
-     private Tweet head;
-     private int amount;
-     private int positive;
-     private int negative;
-     private int neutral;
-     private String language;
+public class LanguageTweet {
+     private ListTweet list;
+     private String nameLang;
+     private LanguageTweet prox;
 
-     public LanguageTweet(String language) {
-          head = null;
-          positive = 0;
-          negative = 0;
-          neutral = 0;
-          amount = 0;
-          this.language = language;
+     public LanguageTweet(String nameLang) {
+          this.nameLang = nameLang;
      }
 
-     public void insertInBeginning(Tweet t) {
-          t.setProx(head);
-          head = t;
-          amount++;
-          if(t.getHandLabel().equals("Neutral")){
-               neutral++;
-          }
-          if(t.getHandLabel().equals("Positive")){
-               positive++;
-          }
-          if(t.getHandLabel().equals("Negative")){
-               negative++;
-          }
+     public void setProx(LanguageTweet prox) {
+          this.prox = prox;
      }
 
-     public void print() {
-          Tweet aux = head;
-          while (aux != null) {
-               System.out.println(aux.getAnnotatorID());
-               aux = aux.getprox();
-          }
+     public void setList(ListTweet list) {
+          this.list = list;
      }
 
-     public void getFeelings(){
-          System.out.println("Negative: "+negative + ", Positive: " + positive + ", Neutral: " + neutral);
+     public LanguageTweet getProx() {
+          return prox;
      }
 
-     public int getamount() {
-          return amount;
+     public ListTweet getListTweet() {
+          return list;
      }
 
-     public void setamount(int amount) {
-          this.amount = amount;
-     }
-
-     public int getpositives() {
-          return positive;
-     }
-
-     public void setpositives(int positive) {
-          this.positive = positive;
-     }
-
-     public int getNegativos() {
-          return negative;
-     }
-
-     public void setNegativos(int negative) {
-          this.negative = negative;
-     }
-
-     public int getNeutros() {
-          return neutral;
-     }
-
-     public void setNeutros(int neutral) {
-          this.neutral = neutral;
-     }
-
-     public String getLanguage() {
-          return language;
+     public String getNameLang() {
+          return nameLang;
      }
 }

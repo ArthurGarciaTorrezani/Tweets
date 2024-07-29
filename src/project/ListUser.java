@@ -16,7 +16,6 @@ public class ListUser {
          User aux = head;
          User user;
          if (aux == null){
-             System.out.printf("oi ");
              user = new User(id);
              insertInBeginning(user);
              return false;
@@ -24,13 +23,11 @@ public class ListUser {
 
          while (aux.getProx() != null){
              if(aux.getId().equals(id)){
-                 System.out.printf("io ");
                  aux.setAmount();
                  return true;
              }
              aux = aux.getProx();
          }
-         System.out.printf("foi ");
          user = new User(id);
          insertInBeginning(user);
          return false;

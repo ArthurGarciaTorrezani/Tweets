@@ -26,7 +26,6 @@ public class User {
      }
 
      public void setAmount(){
-          System.out.print("user: " + id + " amount: " + amount + " ");
           this.amount ++;
      }
 
