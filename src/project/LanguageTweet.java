@@ -10,7 +10,7 @@ public class LanguageTweet {
           this.languageName = nameLang;
      }
 
-     public void setProx(LanguageTweet next) {
+     public void setNext(LanguageTweet next) {
           this.next = next;
      }
 

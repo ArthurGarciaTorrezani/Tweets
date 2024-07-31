@@ -16,9 +16,12 @@ public class ListTweet {
      }
 
      public void insertInBeginning(Tweet t) {
+          amount ++;
+
           t.setNextTweet(head);
+
           head = t;
-          amount++;
+          
 
           if (t.getHandLabel().equals("Neutral")) {
                neutral++;
@@ -34,7 +37,6 @@ public class ListTweet {
      public void print() {
           Tweet tweetAux = head;
           while (tweetAux != null) {
-               System.out.println(tweetAux.getAnnotatorID());
                tweetAux = tweetAux.getNextTweet();
           }
      }
@@ -73,5 +75,9 @@ public class ListTweet {
 
      public void setNeutralTweets(int neutral) {
           this.neutral = neutral;
+     }
+     
+     public void printAmount() {
+          System.out.printf("%s: %d\n", head.getLanguageName(), amount);
      }
 }

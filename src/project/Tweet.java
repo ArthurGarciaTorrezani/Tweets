@@ -4,13 +4,19 @@ public class Tweet {
     private String tweetID;
     private String handLabel;
     private String annotatorID;
+    private String language;
     private Tweet next;
 
 
-    public Tweet(String tweetID, String handLabel, String annotatorID){
+    public Tweet(String language, String tweetID, String handLabel, String annotatorID){
+        this.language = language;
         this.tweetID = tweetID;
         this.handLabel = handLabel;
         this.annotatorID = annotatorID;
+    }
+
+    public String getLanguageName() {
+        return language;
     }
 
     public String getTweetId(){

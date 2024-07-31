@@ -19,11 +19,13 @@ public class ReaderFile {
 
                while (line != null) {
                     String[] content = line.split(",");
-                    tweet = new Tweet(content[0], content[1], content[2]);
+                    tweet = new Tweet(language.getLanguageName(), content[0], content[1], content[2]);
                     tweetList.insertInBeginning(tweet);
                     users.searchOrInsert(tweet.getAnnotatorID());
                     line = readFile.readLine();
                }
+               tweetList.printAmount();
+               tweetList.getFeelings();
                archive.close();
                language.setList(tweetList);
 

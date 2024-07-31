@@ -11,22 +11,20 @@ public class OpenDir {
      public static void open() {
 
           Path folder = Paths.get("src\\TwitterLanguages");
-          ListAllLanguages listAllLanguages = new ListAllLanguages();
+          ListAllLanguages allLanguages = new ListAllLanguages();
           ListUser users = new ListUser();
 
           try (DirectoryStream<Path> stream = Files.newDirectoryStream(folder)) {
                for (Path archive : stream) {
                     if (Files.isRegularFile(archive)) {
-                         System.out.println("=================================================");
-                         System.out.println("                                              ");
-                         String archiveName = archive.getFileName().toString();
-                         LanguageTweet lang = ReaderFile.read("src\\\\TwitterLanguages\\" + archive.getFileName(), users, archiveName);
-                         System.out.println(archive.getFileName());
-                         listAllLanguages.insertInBeginning(lang);
-                         System.out.println("=================================================");
+                         String archiveArr[] = archive.getFileName().toString().split("_");
+                         String archiveName = archiveArr[0];
+                         LanguageTweet lang = ReaderFile.read("src\\TwitterLanguages\\" + archive.getFileName(), users, archiveName);
+                         allLanguages.insertInBeginning(lang);
                     }
                }
-               users.print();
+               // allLanguages.print();
+               // users.print();
           } catch (IOException | DirectoryIteratorException e) {
                System.err.println("Erro ao ler os arquivos: " + e.getMessage());
           }
