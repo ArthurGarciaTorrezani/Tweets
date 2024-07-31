@@ -1,44 +1,56 @@
 package project;
 
 public class ListUser {
-    private User head;
-     public ListUser(){
-         head = null;
-     }
+    private Node head;
 
-     public void insertInBeginning(User user){
-         user.setProx(head);
-         head = user;
-         user.setAmount();
-     }
+    private static class Node {
+        private User user;
+        private Node next;
 
-     public boolean search(String id){
-         User aux = head;
-         User user;
-         if (aux == null){
-             user = new User(id);
-             insertInBeginning(user);
-             return false;
-         }
+        public Node(User user) {
+            this.user = user;
+            this.next = null;
+        }
+    }
 
-         while (aux.getProx() != null){
-             if(aux.getId().equals(id)){
-                 aux.setAmount();
-                 return true;
-             }
-             aux = aux.getProx();
-         }
-         user = new User(id);
-         insertInBeginning(user);
-         return false;
-     }
+    public ListUser() {
+        head = null;
+    }
+
+    public void insertAtBeginning(User user) {
+        Node newNode = new Node(user);
+        newNode.next = head;
+        head = newNode;
+        user.incrementAmount();
+    }
+
+    public User search(String id) {
+        Node current = head;
+        while (current != null) {
+            if (current.user.getId().equals(id)) {
+                current.user.incrementAmount();
+                return current.user;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+
+    public boolean searchOrInsert(String id) {
+        User foundUser = search(id);
+        if (foundUser != null) {
+            return true;
+        } else {
+            insertAtBeginning(new User(id));
+            return false;
+        }
+    }
 
     public void print() {
-        User aux = head;
-        while (aux != null) {
-            System.out.printf(aux.getId()+" ");
-            System.out.println(aux.getAmount());
-            aux = aux.getProx();
+        Node current = head;
+        while (current != null) {
+            System.out.printf("ID: %s | Users: %d\n", current.user.getId(), current.user.getAmountUsers());
+            current = current.next;
         }
     }
 }

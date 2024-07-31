@@ -1,30 +1,31 @@
 package project;
+
 public class Tweet {
-    private String TweetID;
-    private String HandLabel;
-    private String AnnotatorID;
-    private Tweet prox;
+    private String tweetID;
+    private String handLabel;
+    private String annotatorID;
+    private Tweet next;
 
 
-    public Tweet(String TweetID, String HandLabel, String AnnotatorID){
-        this.TweetID = TweetID;
-        this.HandLabel = HandLabel;
-        this.AnnotatorID = AnnotatorID;
+    public Tweet(String tweetID, String handLabel, String annotatorID){
+        this.tweetID = tweetID;
+        this.handLabel = handLabel;
+        this.annotatorID = annotatorID;
     }
 
     public String getTweetId(){
-        return TweetID;
+        return tweetID;
     }
     public String getHandLabel(){
-        return HandLabel;
+        return handLabel;
     }
     public String getAnnotatorID(){
-        return AnnotatorID;
+        return annotatorID;
     }
-    public Tweet getprox(){
-        return prox;
+    public Tweet getNextTweet(){
+        return next;
     }
-    public void setProx(Tweet prox){
-        this.prox = prox;
+    public void setNextTweet(Tweet nextTweet){
+        this.next = next;
     }
 }

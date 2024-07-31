@@ -1,31 +1,32 @@
 package project;
 
 public class LanguageTweet {
-     private ListTweet list;
-     private String nameLang;
-     private LanguageTweet prox;
+
+     private ListTweet listOfTweets;
+     private String languageName;
+     private LanguageTweet next;
 
      public LanguageTweet(String nameLang) {
-          this.nameLang = nameLang;
+          this.languageName = nameLang;
      }
 
-     public void setProx(LanguageTweet prox) {
-          this.prox = prox;
+     public void setProx(LanguageTweet next) {
+          this.next = next;
      }
 
      public void setList(ListTweet list) {
-          this.list = list;
+          this.listOfTweets = list;
      }
 
-     public LanguageTweet getProx() {
-          return prox;
+     public LanguageTweet getNextLanguageTweet() {
+          return next;
      }
 
      public ListTweet getListTweet() {
-          return list;
+          return listOfTweets;
      }
 
-     public String getNameLang() {
-          return nameLang;
+     public String getLanguageName() {
+          return languageName;
      }
 }
