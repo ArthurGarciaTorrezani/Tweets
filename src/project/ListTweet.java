@@ -1,6 +1,6 @@
 package project;
 
-public class ListTweet { // usa uma lista encadeada simples
+public class ListTweet {
      private Tweet head;
      private int amount;
      private int positive;
@@ -16,61 +16,68 @@ public class ListTweet { // usa uma lista encadeada simples
      }
 
      public void insertInBeginning(Tweet t) {
-          t.setProx(head);
+          amount ++;
+
+          t.setNextTweet(head);
+
           head = t;
-          amount++;
-          if(t.getHandLabel().equals("Neutral")){
+          
+
+          if (t.getHandLabel().equals("Neutral")) {
                neutral++;
           }
-          if(t.getHandLabel().equals("Positive")){
+          if (t.getHandLabel().equals("Positive")) {
                positive++;
           }
-          if(t.getHandLabel().equals("Negative")){
+          if (t.getHandLabel().equals("Negative")) {
                negative++;
           }
      }
 
      public void print() {
-          Tweet aux = head;
-          while (aux != null) {
-               System.out.println(aux.getAnnotatorID());
-               aux = aux.getprox();
+          Tweet tweetAux = head;
+          while (tweetAux != null) {
+               tweetAux = tweetAux.getNextTweet();
           }
      }
 
-     public void getFeelings(){
-          System.out.println("Negative: "+negative + ", Positive: " + positive + ", Neutral: " + neutral);
+     public void getFeelings() {
+          System.out.println("Negative: " + negative + ", Positive: " + positive + ", Neutral: " + neutral);
      }
 
-     public int getamount() {
+     public int getAmount() {
           return amount;
      }
 
-     public void setamount(int amount) {
+     public void setAmount(int amount) {
           this.amount = amount;
      }
 
-     public int getpositives() {
+     public int getPositiveTweets() {
           return positive;
      }
 
-     public void setpositives(int positive) {
+     public void setPositiveTweets(int positive) {
           this.positive = positive;
      }
 
-     public int getNegativos() {
+     public int getNegativeTweets() {
           return negative;
      }
 
-     public void setNegativos(int negative) {
+     public void setNegativeTweets(int negative) {
           this.negative = negative;
      }
 
-     public int getNeutros() {
+     public int getNeutralTweets() {
           return neutral;
      }
 
-     public void setNeutros(int neutral) {
+     public void setNeutralTweets(int neutral) {
           this.neutral = neutral;
+     }
+     
+     public void printAmount() {
+          System.out.printf("%s: %d\n", head.getLanguageName(), amount);
      }
 }
