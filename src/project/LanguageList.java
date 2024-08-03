@@ -7,6 +7,18 @@ public class LanguageList {
         this.first = null;
     }
 
+    public void addLanguage(Language lang) {
+        if (first == null) {
+            first = lang;
+        } else {
+            Language current = first;
+            while (current.getNext() != null) {
+                current = current.getNext();
+            }
+            current.setNext(lang);
+        }
+    }
+
     public void volumeTweets() {
         Language current = first;
 
@@ -19,11 +31,11 @@ public class LanguageList {
         }
         System.out.println("----------------------------------------------------");
     }
-    
+
     public void positiveFeelings() {
         Language current = first;
         int amount = 0;
-        
+
         System.out.println("----------------------------------------------------");
         System.out.println("----------------- Positive Feelings ----------------");
         System.out.println("----------------------------------------------------");
@@ -38,7 +50,7 @@ public class LanguageList {
     public void negativeFeelings() {
         Language current = first;
         int amount = 0;
-        
+
         System.out.println("----------------------------------------------------");
         System.out.println("----------------- Negative Feelings ----------------");
         System.out.println("----------------------------------------------------");
@@ -48,19 +60,7 @@ public class LanguageList {
         }
         System.out.printf("Negative: %d\n", amount);
         System.out.println("----------------------------------------------------");
-    }
-
-    public void addLanguage(Language lang) {
-        if (first == null) {
-            first = lang;
-        } else {
-            Language current = first;
-            while (current.getNext() != null) {
-                current = current.getNext();
-            }
-            current.setNext(lang);
-        }
-    }
+    }    
 
     public Language getLanguageWithMostNegativeTweets() {
         if (first == null) {
@@ -138,7 +138,7 @@ public class LanguageList {
 
         return rankedLanguages;
     }
-    
+
     public String rankLanguagesByPositiveTweets() {
         if (first == null) {
             return "No languages found.";

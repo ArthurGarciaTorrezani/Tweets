@@ -6,30 +6,29 @@ public class Tweet {
     private String annotatorID;
     private Tweet next;
 
-
-    public Tweet(String tweetID, String handLabel, String annotatorID){
+    public Tweet(String tweetID, String handLabel, String annotatorID) {
         this.tweetID = tweetID;
         this.handLabel = handLabel;
         this.annotatorID = annotatorID;
     }
 
-    public String getTweetId(){
+    public String getTweetId() {
         return tweetID;
     }
 
-    public String getHandLabel(){
+    public String getHandLabel() {
         return handLabel;
     }
 
-    public String getAnnotatorID(){
+    public String getAnnotatorID() {
         return annotatorID;
     }
 
-    public Tweet getNext(){
+    public Tweet getNext() {
         return next;
     }
 
-    public void setNext(Tweet next){
+    public void setNext(Tweet next) {
         this.next = next;
     }
 }

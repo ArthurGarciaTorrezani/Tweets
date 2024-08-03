@@ -60,7 +60,8 @@ public class UserList {
         System.out.println("------------------------------------------------------");
         while (current != null) {
             if (current.user.getAmountUsers() > 1) {
-                System.out.printf("User: %s | Countries: %s | Amount: %d\n", current.user.getId(), current.user.getCountries(), current.user.getAmountUsers());
+                System.out.printf("User: %s | Countries: %s | Amount: %d\n", current.user.getId(),
+                        current.user.getCountries(), current.user.getAmountUsers());
             }
             current = current.next;
         }
