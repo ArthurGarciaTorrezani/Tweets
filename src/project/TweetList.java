@@ -16,7 +16,7 @@ public class TweetList {
      }
 
      public void insertInBeginning(Tweet t) {
-          amount ++;
+          amount++;
 
           t.setNext(first);
           first = t;
