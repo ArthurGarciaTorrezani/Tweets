@@ -1,48 +1,43 @@
 package project;
 
 public class User {
-     private String id;
-     private int amount;
-     private User next;
-     private Country country;
-     private ListUserCountries listCountries;
 
-     public User(String id){
-          listCountries = new ListUserCountries();
-          this.id = id;
-          this.amount = 0;
-     }
+    private String id;
+    private int amountLang;
+    private String countries;
+    private User next;
 
-     public void setCountry(String country){
-          this.country = new Country(country);
-          listCountries.insertAtBeginning(this.country);
-     }
+    public User(String id) {
+        this.id = id;
+        this.countries = "";
+        this.amountLang = 0;
+    }
 
-     public boolean searchCountry(String country){
-          return listCountries.search(country);
-     }
+    public String getId() {
+        return id;
+    }
 
-     public String getId() {
-          return id;
-     }
+    public String getCountries() {
+        return countries;
+    }
 
-     public void setId(String id) {
-          this.id = id;
-     }
+    public int getAmountUsers() {
+        return amountLang;
+    }
 
-     public int getAmountUsers() {
-          return amount;
-     }
+    public void setNext(User user){
+        next = user;
+    }
 
-     public void setNextUser(User user){
-          next = user;
-     }
+    public void setCountries(String country){
+        countries += country + ";";
+    }
 
-     public void incrementAmount(){
-          this.amount ++;
-     }
+    public User getNext(){
+        return next;
+    }
 
-     public User getNextUser(){
-          return next;
-     }
+    public void incrementAmount(){
+        this.amountLang ++;
+    }
 }
